@@ -13,10 +13,12 @@ namespace SubdSecond
 {
     public partial class LibraryForm : Form
     {
-        public LibraryForm()
+        string userNickName;
+        public LibraryForm(string nickName)
         {
             InitializeComponent();
             refresh();
+            userNickName = nickName;
         }
 
         private void refresh()
@@ -32,7 +34,8 @@ namespace SubdSecond
             {
                 DataTable dt = new DataTable();
                 dt.Load(reader);
-                dbdDataGridView.DataSource = dt;
+                //dbdDataGridView.DataSource = dt;
+                //poisonDataGridView1.DataSource = dt;
             }
             comm.Dispose();
             conn.Close();

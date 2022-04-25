@@ -13,11 +13,16 @@ namespace SubdSecond
 {
     public partial class UserLoginForm : Form
     {
-        //true if sign in, false if need to register
-        bool signInUpCheck = true;
-
         string userLogin = "";
         string userPassword = "";
+
+        enum signInUpState
+        {
+            REGISTRATION,
+            LOGIN
+        };
+        
+        signInUpState loginstatus = signInUpState.LOGIN;
 
         public UserLoginForm()
         {
@@ -82,55 +87,57 @@ namespace SubdSecond
 
         private void signUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (signInUpCheck)
+            if (loginstatus == signInUpState.LOGIN)
             {
                 signInButton.Text = "Создать аккаунт";
                 signUpLinkLabel.Text = "Уже есть аккаунт";
                 logoLabel.Text = "Регистрация в Мою библиотеку";
+                loginstatus = signInUpState.REGISTRATION;
             }
             else
             {
                 signInButton.Text = "Войти в аккаунт";
                 signUpLinkLabel.Text = "Создать аккаунт";
                 logoLabel.Text ="Моя библиотека";
+                loginstatus = signInUpState.LOGIN;
             }
             loginMaskedTextBox.Text = "";
             passwordMaskedTextBox.Text = "";
-
-            signInUpCheck = !signInUpCheck;
         }
 
         private void signInButton_Click(object sender, EventArgs e)
         {
             userLogin = loginMaskedTextBox.Text;
             userPassword = passwordMaskedTextBox.Text;
-            
-            LibraryForm library = new LibraryForm();
+            bool signInSucces = false;
 
-            if (signInUpCheck)
+            if (loginstatus == signInUpState.LOGIN)
             {
-                //signInUser();
                 if (signInUser())
                 {
-                    this.Hide();
-                    library.Show();
+                    signInSucces = true;
                 }
                 else
                     MessageBox.Show("Неверный логин или пароль","Ошибка");
             }
             else
             {
-                //signUpNewUser();
                 if (signUpNewUser())
                 {
-                    this.Hide();
-                    library.Show();
+                    signInSucces = true;
                 }
                 else
                     MessageBox.Show("Такой пользователь уже существует","Ошибка");
                 
             }
-            
+
+            if (signInSucces == true)
+            {
+                LibraryForm library = new LibraryForm(userLogin);
+                this.Hide();
+                library.Show();
+            }
+
         }
 
         private void loginMaskedTextBox_KeyDown(object sender, KeyEventArgs e)
