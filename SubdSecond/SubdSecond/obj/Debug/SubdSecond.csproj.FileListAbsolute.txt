@@ -84,3 +84,5 @@ C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecon
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.csproj.CopyComplete
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.exe
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.pdb
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\ReaLTaiizor.dll
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\ReaLTaiizor.xml
