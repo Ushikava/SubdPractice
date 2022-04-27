@@ -115,6 +115,12 @@
     <Compile Include="LibraryForm.Designer.cs">
       <DependentUpon>LibraryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyOwnControls\MyOwnPanelcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyOwnControls\MyOwnPanelcs.Designer.cs">
+      <DependentUpon>MyOwnPanelcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyOwnControls\UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LibraryForm.resx">
       <DependentUpon>LibraryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyOwnControls\MyOwnPanelcs.resx">
+      <DependentUpon>MyOwnPanelcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyOwnControls\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
@@ -168,7 +177,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\dog.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -79,7 +79,6 @@ namespace SubdSecond
             comm.CommandText = "select userlogin from userstable where (userlogin = @oldUserLogin) and (userpassword = @oldUserPassword);";
             NpgsqlDataReader reader = comm.ExecuteReader();
             bool userCheck = reader.HasRows;
-            //comm.ExecuteNonQuery()
             comm.Dispose();
             conn.Close();
             return userCheck;

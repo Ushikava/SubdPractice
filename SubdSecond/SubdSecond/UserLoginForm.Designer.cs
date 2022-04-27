@@ -120,10 +120,10 @@
             // 
             this.logoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logoLabel.AutoSize = true;
-            this.logoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.logoLabel.Location = new System.Drawing.Point(317, 88);
+            this.logoLabel.Font = new System.Drawing.Font("Bahnschrift SemiBold", 7.875F, System.Drawing.FontStyle.Bold);
+            this.logoLabel.Location = new System.Drawing.Point(356, 94);
             this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(246, 37);
+            this.logoLabel.Size = new System.Drawing.Size(168, 25);
             this.logoLabel.TabIndex = 1;
             this.logoLabel.Text = "Моя библиотека";
             // 

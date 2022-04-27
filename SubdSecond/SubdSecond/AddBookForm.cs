@@ -29,7 +29,8 @@ namespace SubdSecond
             comm.CommandText = "select * from genretable";
             NpgsqlDataReader reader = comm.ExecuteReader();
             List<(int,string)> genreOfBooks = new List<(int,string)>();
-            while (reader.Read() == true)
+            //while (reader.Read()==true)
+            while (reader.Read())
             {
                 int id = Convert.ToInt32(reader["id"]);
                 string genre = reader["genre"].ToString();
