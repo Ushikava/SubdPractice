@@ -68,7 +68,9 @@
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(230, 33);
             this.statusComboBox.TabIndex = 3;
+            this.statusComboBox.Visible = false;
             this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.statusComboBox_SelectedIndexChanged);
+            this.statusComboBox.SelectionChangeCommitted += new System.EventHandler(this.statusComboBox_SelectionChangeCommitted);
             this.statusComboBox.MouseEnter += new System.EventHandler(this.statusComboBox_MouseEnter);
             this.statusComboBox.MouseLeave += new System.EventHandler(this.statusComboBox_MouseLeave);
             // 

@@ -14,6 +14,8 @@ namespace SubdSecond
 {
     public partial class LibraryForm : Form
     {
+        string userNickName = "";
+
         enum Statuses
         {
             ADDBOOK,
@@ -24,7 +26,15 @@ namespace SubdSecond
             PUTAWAY
         }
 
-        string userNickName = "";
+        public struct Book
+        {
+            public string name;
+            public int genre;
+            public string author;
+            public int numOfPages;
+            public int status;
+        }
+
 
         public LibraryForm(string nickName)
         {
@@ -36,30 +46,73 @@ namespace SubdSecond
 
         private void refresh()
         {
+            List<Book> library = new List<Book>();
+            myOwnPanel.Controls.Clear();
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
             conn.Open();
             NpgsqlCommand comm = new NpgsqlCommand();
             comm.Connection = conn;
             comm.CommandType = CommandType.Text;
-            comm.Parameters.Add(new NpgsqlParameter("@userNickName", userNickName));
-            comm.CommandText = "select * from statustable where userlogin = @userNickName";
+            comm.CommandText = "select * from librarytable";
             NpgsqlDataReader reader = comm.ExecuteReader();
             if (reader.HasRows)
             {
-                //показывать все книжки, но статусы только у некоторых
-                singleBookPanelControl sbpc = new singleBookPanelControl(userNickName);
-
                 while (reader.Read())
                 {
-                    //sbpc.Location = new Point(20, 50);
-                    sbpc.Margin = new Padding(15,15,15,15);
-                    myOwnPanel.Controls.Add(sbpc);
-                    sbpc.bookNameLabel.Text = reader.GetString(1);
-                    sbpc.statusComboBox.SelectedIndex = (reader.GetInt32(2))-1;
+                    Book oneBook = new Book();
+                    oneBook.name = reader["bookname"].ToString();
+                    oneBook.author = reader["authorname"].ToString();
+                    oneBook.numOfPages = Convert.ToInt32(reader["numberofpages"]);
+                    oneBook.genre = Convert.ToInt32(reader["bookgenre"]);
+                    oneBook.status = -1;
+                    library.Add(oneBook);
                 }
             }
             comm.Dispose();
             conn.Close();
+
+
+            conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
+            conn.Open();
+            comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Add(new NpgsqlParameter("@userNickName", userNickName));
+            comm.CommandText = "select * from statustable where userlogin = @userNickName";
+            reader = comm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string bookName = reader["booknames"].ToString();
+                
+                for (int i = 0; i<library.Count; i++)
+                {
+                    if (library[i].name == bookName)
+                    {
+                        Book currentBook = library[i];
+                        currentBook.status = ((reader.GetInt32(2)) - 1);
+                        library[i] = currentBook;
+                    }
+                }
+                
+            }
+            comm.Dispose();
+            conn.Close();
+
+            foreach (Book j in library)
+            {
+                singleBookPanelControl sbpc = new singleBookPanelControl(userNickName);
+                sbpc.Margin = new Padding(15, 15, 15, 15);
+                myOwnPanel.Controls.Add(sbpc);
+                sbpc.bookNameLabel.Text = j.name;
+                sbpc.statusComboBox.SelectedIndex = j.status;
+                if (j.status == -1)
+                {
+                    sbpc.statusComboBox.SelectedIndex = 5;
+                }
+
+            }
+
             myOwnPanel.PaintForm();
         }
 
@@ -105,23 +158,24 @@ namespace SubdSecond
             }
         }
 
-        private string GetBookStatus(Statuses statusCode)
-        {
-            switch (statusCode)
-            {
-                case Statuses.PLANNING:
-                    return "В планах";
-                case Statuses.READAING:
-                    return "Читаю";
-                case Statuses.READ:
-                    return "Прочитал";
-                case Statuses.DROPPED:
-                    return "Бросил";
-                case Statuses.PUTAWAY:
-                    return "Отложил";
-                default:
-                    return "Добавить...";
-            }
-        }
+        //private string GetBookStatus(Statuses statusCode)
+        //{
+        //    switch (statusCode)
+        //    {
+        //        case Statuses.PLANNING:
+        //            return "В планах";
+        //        case Statuses.READAING:
+        //            return "Читаю";
+        //        case Statuses.READ:
+        //            return "Прочитал";
+        //        case Statuses.DROPPED:
+        //            return "Бросил";
+        //        case Statuses.PUTAWAY:
+        //            return "Отложил";
+        //        default:
+        //            return "Добавить...";
+        //    }
+        //}
+
     }
 }

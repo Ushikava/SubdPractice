@@ -44,7 +44,7 @@
             // sayHiLabel
             // 
             this.sayHiLabel.AutoSize = true;
-            this.sayHiLabel.Location = new System.Drawing.Point(1292, 68);
+            this.sayHiLabel.Location = new System.Drawing.Point(56, 631);
             this.sayHiLabel.Name = "sayHiLabel";
             this.sayHiLabel.Size = new System.Drawing.Size(213, 25);
             this.sayHiLabel.TabIndex = 3;
