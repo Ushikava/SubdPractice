@@ -37,14 +37,20 @@
             this.lowerLoginTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.signUpLinkLabel = new System.Windows.Forms.LinkLabel();
             this.signInButton = new System.Windows.Forms.Button();
+            this.loginPictureBox = new System.Windows.Forms.PictureBox();
+            this.passwordPictureBox = new System.Windows.Forms.PictureBox();
             this.mainTableLayoutPanel.SuspendLayout();
             this.upperLoginTableLayoutPanel.SuspendLayout();
             this.loginParolTableLayoutPanel.SuspendLayout();
             this.lowerLoginTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTableLayoutPanel
             // 
+            this.mainTableLayoutPanel.BackgroundImage = global::SubdSecond.Properties.Resources.MainBackground;
+            this.mainTableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainTableLayoutPanel.ColumnCount = 1;
             this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainTableLayoutPanel.Controls.Add(this.upperLoginTableLayoutPanel, 0, 0);
@@ -60,6 +66,7 @@
             // 
             // upperLoginTableLayoutPanel
             // 
+            this.upperLoginTableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.upperLoginTableLayoutPanel.ColumnCount = 3;
             this.upperLoginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.upperLoginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
@@ -77,11 +84,14 @@
             // 
             // loginParolTableLayoutPanel
             // 
-            this.loginParolTableLayoutPanel.ColumnCount = 1;
-            this.loginParolTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.loginParolTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.loginParolTableLayoutPanel.Controls.Add(this.loginMaskedTextBox, 0, 0);
-            this.loginParolTableLayoutPanel.Controls.Add(this.passwordMaskedTextBox, 0, 1);
+            this.loginParolTableLayoutPanel.BackgroundImage = global::SubdSecond.Properties.Resources.LoginPasswordBackground;
+            this.loginParolTableLayoutPanel.ColumnCount = 2;
+            this.loginParolTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.loginParolTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87F));
+            this.loginParolTableLayoutPanel.Controls.Add(this.loginMaskedTextBox, 1, 0);
+            this.loginParolTableLayoutPanel.Controls.Add(this.passwordMaskedTextBox, 1, 1);
+            this.loginParolTableLayoutPanel.Controls.Add(this.loginPictureBox, 0, 0);
+            this.loginParolTableLayoutPanel.Controls.Add(this.passwordPictureBox, 0, 1);
             this.loginParolTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loginParolTableLayoutPanel.Location = new System.Drawing.Point(179, 217);
             this.loginParolTableLayoutPanel.Name = "loginParolTableLayoutPanel";
@@ -95,7 +105,7 @@
             // 
             this.loginMaskedTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.loginMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginMaskedTextBox.Location = new System.Drawing.Point(43, 16);
+            this.loginMaskedTextBox.Location = new System.Drawing.Point(77, 16);
             this.loginMaskedTextBox.Name = "loginMaskedTextBox";
             this.loginMaskedTextBox.Size = new System.Drawing.Size(435, 49);
             this.loginMaskedTextBox.TabIndex = 0;
@@ -107,7 +117,7 @@
             // 
             this.passwordMaskedTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.passwordMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passwordMaskedTextBox.Location = new System.Drawing.Point(43, 78);
+            this.passwordMaskedTextBox.Location = new System.Drawing.Point(77, 78);
             this.passwordMaskedTextBox.Name = "passwordMaskedTextBox";
             this.passwordMaskedTextBox.PasswordChar = '*';
             this.passwordMaskedTextBox.Size = new System.Drawing.Size(435, 49);
@@ -120,15 +130,17 @@
             // 
             this.logoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logoLabel.AutoSize = true;
-            this.logoLabel.Font = new System.Drawing.Font("Bahnschrift SemiBold", 7.875F, System.Drawing.FontStyle.Bold);
-            this.logoLabel.Location = new System.Drawing.Point(356, 94);
+            this.logoLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 22.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.logoLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.logoLabel.Location = new System.Drawing.Point(236, 71);
             this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(168, 25);
+            this.logoLabel.Size = new System.Drawing.Size(408, 71);
             this.logoLabel.TabIndex = 1;
             this.logoLabel.Text = "Моя библиотека";
             // 
             // lowerLoginTableLayoutPanel
             // 
+            this.lowerLoginTableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.lowerLoginTableLayoutPanel.ColumnCount = 3;
             this.lowerLoginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.lowerLoginTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -148,10 +160,11 @@
             // 
             this.signUpLinkLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.signUpLinkLabel.AutoSize = true;
-            this.signUpLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.signUpLinkLabel.Location = new System.Drawing.Point(348, 82);
+            this.signUpLinkLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.signUpLinkLabel.LinkColor = System.Drawing.Color.White;
+            this.signUpLinkLabel.Location = new System.Drawing.Point(355, 82);
             this.signUpLinkLabel.Name = "signUpLinkLabel";
-            this.signUpLinkLabel.Size = new System.Drawing.Size(183, 26);
+            this.signUpLinkLabel.Size = new System.Drawing.Size(170, 29);
             this.signUpLinkLabel.TabIndex = 1;
             this.signUpLinkLabel.TabStop = true;
             this.signUpLinkLabel.Text = "Создать аккаунт";
@@ -160,22 +173,46 @@
             // signInButton
             // 
             this.signInButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.signInButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.signInButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.signInButton.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.signInButton.Location = new System.Drawing.Point(312, 3);
             this.signInButton.Name = "signInButton";
             this.signInButton.Size = new System.Drawing.Size(256, 57);
             this.signInButton.TabIndex = 0;
             this.signInButton.Text = "Войти в аккаунт";
-            this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.UseVisualStyleBackColor = false;
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
+            // 
+            // loginPictureBox
+            // 
+            this.loginPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginPictureBox.BackgroundImage = global::SubdSecond.Properties.Resources.Login;
+            this.loginPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loginPictureBox.Location = new System.Drawing.Point(14, 15);
+            this.loginPictureBox.Name = "loginPictureBox";
+            this.loginPictureBox.Size = new System.Drawing.Size(50, 50);
+            this.loginPictureBox.TabIndex = 2;
+            this.loginPictureBox.TabStop = false;
+            // 
+            // passwordPictureBox
+            // 
+            this.passwordPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.passwordPictureBox.BackgroundImage = global::SubdSecond.Properties.Resources.Password;
+            this.passwordPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.passwordPictureBox.Location = new System.Drawing.Point(11, 77);
+            this.passwordPictureBox.Name = "passwordPictureBox";
+            this.passwordPictureBox.Size = new System.Drawing.Size(53, 50);
+            this.passwordPictureBox.TabIndex = 3;
+            this.passwordPictureBox.TabStop = false;
             // 
             // UserLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(887, 605);
             this.Controls.Add(this.mainTableLayoutPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "UserLoginForm";
@@ -187,6 +224,8 @@
             this.loginParolTableLayoutPanel.PerformLayout();
             this.lowerLoginTableLayoutPanel.ResumeLayout(false);
             this.lowerLoginTableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +241,7 @@
         private System.Windows.Forms.MaskedTextBox loginMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox passwordMaskedTextBox;
         private System.Windows.Forms.Label logoLabel;
+        private System.Windows.Forms.PictureBox loginPictureBox;
+        private System.Windows.Forms.PictureBox passwordPictureBox;
     }
 }
