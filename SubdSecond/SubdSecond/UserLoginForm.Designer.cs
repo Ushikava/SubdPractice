@@ -150,9 +150,10 @@
             this.lowerLoginTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lowerLoginTableLayoutPanel.Location = new System.Drawing.Point(3, 366);
             this.lowerLoginTableLayoutPanel.Name = "lowerLoginTableLayoutPanel";
-            this.lowerLoginTableLayoutPanel.RowCount = 2;
+            this.lowerLoginTableLayoutPanel.RowCount = 3;
             this.lowerLoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.lowerLoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.lowerLoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.lowerLoginTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.lowerLoginTableLayoutPanel.Size = new System.Drawing.Size(881, 236);
             this.lowerLoginTableLayoutPanel.TabIndex = 1;
             // 

@@ -158,6 +158,20 @@ namespace SubdSecond
             }
         }
 
+        private void оПриложенииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Приложение \"Моя библиотека\" создано в качестве личной пользовательской библиотеки. Сохраняйте списки книг, добавляйте новые, редактируйте предпочтения. Язык программирования С#, .NET Framework 5. Использованные библиотеки: WinForms, RealTaiizor, NPGSQL. 2022 год ",
+                "О приложении",
+                MessageBoxButtons.OK);
+        }
+
+        private void обАвтореToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Автор: Брюханов Алексей Владимирович, Братский государственный универститет, 2022 год.",
+                "Об авторе",
+                MessageBoxButtons.OK);
+        }
+
         //private string GetBookStatus(Statuses statusCode)
         //{
         //    switch (statusCode)

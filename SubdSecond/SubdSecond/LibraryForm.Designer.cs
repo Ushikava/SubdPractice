@@ -43,10 +43,14 @@
             // 
             // sayHiLabel
             // 
+            this.sayHiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sayHiLabel.AutoSize = true;
-            this.sayHiLabel.Location = new System.Drawing.Point(56, 631);
+            this.sayHiLabel.BackColor = System.Drawing.Color.RoyalBlue;
+            this.sayHiLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.875F);
+            this.sayHiLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.sayHiLabel.Location = new System.Drawing.Point(866, 5);
             this.sayHiLabel.Name = "sayHiLabel";
-            this.sayHiLabel.Size = new System.Drawing.Size(213, 25);
+            this.sayHiLabel.Size = new System.Drawing.Size(245, 35);
             this.sayHiLabel.TabIndex = 3;
             this.sayHiLabel.Text = "Добро пожаловать! ";
             // 
@@ -111,7 +115,7 @@
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.оПриложенииToolStripMenuItem,
             this.обАвтореToolStripMenuItem});
-            this.справкаToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.справкаToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(132, 39);
             this.справкаToolStripMenuItem.Text = "Справка";
@@ -120,18 +124,21 @@
             // 
             this.оПриложенииToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.оПриложенииToolStripMenuItem.Name = "оПриложенииToolStripMenuItem";
-            this.оПриложенииToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.оПриложенииToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.оПриложенииToolStripMenuItem.Text = "О приложении";
+            this.оПриложенииToolStripMenuItem.Click += new System.EventHandler(this.оПриложенииToolStripMenuItem_Click);
             // 
             // обАвтореToolStripMenuItem
             // 
             this.обАвтореToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.обАвтореToolStripMenuItem.Name = "обАвтореToolStripMenuItem";
-            this.обАвтореToolStripMenuItem.Size = new System.Drawing.Size(314, 44);
+            this.обАвтореToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.обАвтореToolStripMenuItem.Text = "Об авторе";
+            this.обАвтореToolStripMenuItem.Click += new System.EventHandler(this.обАвтореToolStripMenuItem_Click);
             // 
             // myOwnPanel
             // 
+            this.myOwnPanel.AutoScroll = true;
             this.myOwnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myOwnPanel.Location = new System.Drawing.Point(0, 43);
             this.myOwnPanel.Name = "myOwnPanel";
