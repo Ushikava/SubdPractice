@@ -34,6 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Name = "MyOwnPanelcs";
             this.Size = new System.Drawing.Size(935, 762);
             this.SizeChanged += new System.EventHandler(this.MyOwnPanelcs_SizeChanged);

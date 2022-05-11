@@ -38,6 +38,7 @@
             // 
             // mainTableLayoutPanel
             // 
+            this.mainTableLayoutPanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.mainTableLayoutPanel.ColumnCount = 2;
             this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.mainTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -58,6 +59,7 @@
             // 
             this.enterNameLabel.AutoSize = true;
             this.enterNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enterNameLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.enterNameLabel.Location = new System.Drawing.Point(3, 0);
             this.enterNameLabel.Name = "enterNameLabel";
             this.enterNameLabel.Size = new System.Drawing.Size(281, 261);
@@ -68,6 +70,7 @@
             // cancelButton
             // 
             this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cancelButton.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cancelButton.Location = new System.Drawing.Point(63, 264);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(160, 53);
@@ -79,6 +82,7 @@
             // deletebButton
             // 
             this.deletebButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.deletebButton.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deletebButton.Location = new System.Drawing.Point(350, 264);
             this.deletebButton.Name = "deletebButton";
             this.deletebButton.Size = new System.Drawing.Size(160, 53);

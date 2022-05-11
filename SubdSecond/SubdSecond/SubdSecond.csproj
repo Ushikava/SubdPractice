@@ -103,12 +103,6 @@
     <Compile Include="AddBookForm.Designer.cs">
       <DependentUpon>AddBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookDescriptionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookDescriptionForm.Designer.cs">
-      <DependentUpon>BookDescriptionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="deleteBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,9 +137,6 @@
     </Compile>
     <EmbeddedResource Include="AddBookForm.resx">
       <DependentUpon>AddBookForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BookDescriptionForm.resx">
-      <DependentUpon>BookDescriptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="deleteBookForm.resx">
       <DependentUpon>deleteBookForm.cs</DependentUpon>
@@ -204,8 +195,15 @@
   <ItemGroup>
     <None Include="Resources\MainBackground.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="CoversOfBooks\" />
+    <Content Include="CoversOfBooks\Новая.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CoversOfBooks\NewBook1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\sample.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />

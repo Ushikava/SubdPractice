@@ -88,4 +88,5 @@ C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\ReaLTaiiz
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\ReaLTaiizor.xml
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.MyOwnControls.singleBookPanelControl.resources
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.MyOwnControls.MyOwnPanelcs.resources
-C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.BookDescriptionForm.resources
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\CoversOfBooks\Новая.png
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\CoversOfBooks\NewBook1.png

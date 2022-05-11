@@ -43,36 +43,6 @@ namespace SubdSecond.MyOwnControls
 
         }
 
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
-        {
-            statusComboBox.Visible = true;
-        }
-
-        private void bookNameLabel_MouseEnter(object sender, EventArgs e)
-        {
-            statusComboBox.Visible = true;
-        }
-
-        private void bookNameLabel_MouseLeave(object sender, EventArgs e)
-        {
-            statusComboBox.Visible = false;
-        }
-
-        private void statusComboBox_MouseEnter(object sender, EventArgs e)
-        {
-            statusComboBox.Visible = true;
-        }
-
-        private void statusComboBox_MouseLeave(object sender, EventArgs e)
-        {
-            statusComboBox.Visible = false;
-        }
-
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
-        {
-            //statusComboBox.Visible = false;
-        }
-
         private void statusComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             string currentBookName = bookNameLabel.Text;
@@ -113,6 +83,16 @@ namespace SubdSecond.MyOwnControls
             comm.ExecuteReader();
             comm.Dispose();
             conn.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            statusComboBox.Visible = !(statusComboBox.Visible);
+        }
+
+        private void bookNameLabel_Click(object sender, EventArgs e)
+        {
+            statusComboBox.Visible = !(statusComboBox.Visible);
         }
     }
 }

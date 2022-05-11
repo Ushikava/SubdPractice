@@ -17,6 +17,7 @@ namespace SubdSecond
         string bookName = "";
         int numOfPages = -1;
         string bookAuthor = "";
+        string choosenFile = "";
 
         public AddBookForm()
         {
@@ -45,6 +46,12 @@ namespace SubdSecond
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
+            if (bookName != "" || bookAuthor != "" || choosenFile != "")
+            {
+                MessageBox.Show("Не все параметры указаны!","Ошибка");
+                return;
+            }
+
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
             conn.Open();
             NpgsqlCommand comm = new NpgsqlCommand();
@@ -56,6 +63,15 @@ namespace SubdSecond
             comm.Parameters.Add(new NpgsqlParameter("@newAuthorName", bookAuthor));
             comm.Parameters.Add(new NpgsqlParameter("@newGenreName", genreIndex));
             comm.CommandText = "insert into librarytable (bookname, numberofpages, authorname, bookgenre) values (@newBookName, @newNumberOfPages, @newAuthorName, @newGenreName);";
+
+            try
+            {
+                System.IO.File.Copy(choosenFile, @"CoversOfBooks\", true);
+            }
+            catch(Exception exp)
+            { 
+                MessageBox.Show("Не удалось взять картинку. Ошибка: " + exp.Message, "Ошибка");
+            }
 
             comm.ExecuteNonQuery();
 
@@ -100,6 +116,17 @@ namespace SubdSecond
             bookAuthor = "";
 
             this.Close();
+        }
+
+        private void choosePictureButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdlg = new OpenFileDialog();
+            ofdlg.Filter = "png files (*.png)|*.png";
+            ofdlg.Multiselect = false;
+            ofdlg.RestoreDirectory = true;
+            ofdlg.ShowDialog();
+            choosenFile = ofdlg.FileName;
+            
         }
     }
 }

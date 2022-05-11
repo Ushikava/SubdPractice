@@ -102,6 +102,10 @@ namespace SubdSecond
             foreach (Book j in library)
             {
                 singleBookPanelControl sbpc = new singleBookPanelControl(userNickName);
+                if(System.IO.File.Exists(@"CoversOfBooks\" + j.name + ".png"))
+                {
+                    sbpc.pictureBox1.Image = new Bitmap(@"CoversOfBooks\" +j.name + ".png");
+                }
                 sbpc.Margin = new Padding(15, 15, 15, 15);
                 myOwnPanel.Controls.Add(sbpc);
                 sbpc.bookNameLabel.Text = j.name;
@@ -171,7 +175,7 @@ namespace SubdSecond
                 "Об авторе",
                 MessageBoxButtons.OK);
         }
-
+        
         //private string GetBookStatus(Statuses statusCode)
         //{
         //    switch (statusCode)
