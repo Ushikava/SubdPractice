@@ -22,6 +22,7 @@ namespace SubdSecond
         public AddBookForm()
         {
             InitializeComponent();
+            //NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = uliya1992");
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
             conn.Open();
             NpgsqlCommand comm = new NpgsqlCommand();
@@ -51,7 +52,7 @@ namespace SubdSecond
                 MessageBox.Show("Не все параметры указаны!","Ошибка");
                 return;
             }
-
+            //NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = uliya1992");
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
             conn.Open();
             NpgsqlCommand comm = new NpgsqlCommand();

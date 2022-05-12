@@ -90,3 +90,4 @@ C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecon
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.MyOwnControls.MyOwnPanelcs.resources
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\CoversOfBooks\Новая.png
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\CoversOfBooks\NewBook1.png
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.ProfileForm.resources

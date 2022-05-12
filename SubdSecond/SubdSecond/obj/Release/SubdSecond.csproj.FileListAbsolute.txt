@@ -47,3 +47,4 @@ C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSec
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSecond.csproj.CopyComplete
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSecond.exe
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSecond.pdb
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSecond.ProfileForm.resources

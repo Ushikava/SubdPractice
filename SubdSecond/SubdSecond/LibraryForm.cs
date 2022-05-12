@@ -41,13 +41,14 @@ namespace SubdSecond
             userNickName = nickName;
             InitializeComponent();
             refresh();
-            sayHiLabel.Text = "Добро пожаловать, " + nickName + "!";
+            sayHiLabel.Text = "Хорошего дня, " + nickName + "!";
         }
 
         private void refresh()
         {
             List<Book> library = new List<Book>();
             myOwnPanel.Controls.Clear();
+            //NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = uliya1992");
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
             conn.Open();
             NpgsqlCommand comm = new NpgsqlCommand();
@@ -71,7 +72,7 @@ namespace SubdSecond
             comm.Dispose();
             conn.Close();
 
-
+            //conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = uliya1992");
             conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
             conn.Open();
             comm = new NpgsqlCommand();
@@ -141,7 +142,7 @@ namespace SubdSecond
 
         private void LibraryForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void LibraryForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -175,7 +176,108 @@ namespace SubdSecond
                 "Об авторе",
                 MessageBoxButtons.OK);
         }
-        
+
+        private void профильToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProfileForm pf = new ProfileForm(userNickName);
+            pf.ShowDialog(this);
+        }
+
+        private void sortByComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Book> library = new List<Book>();
+            myOwnPanel.Controls.Clear();
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+
+            switch (sortByComboBox.SelectedIndex)
+            { 
+                case 0:
+                    comm.CommandText = "select * from librarytable order by bookname";
+                    break;
+                case 1:
+                    comm.CommandText = "select * from librarytable order by numberofpages";
+                    break;
+                case 2:
+                    comm.CommandText = "select * from librarytable order by authorname";
+                    break;
+                case 3:
+                    comm.CommandText = "select * from librarytable order by bookgenre";
+                    break;
+                default:
+                    break;
+            }
+
+            NpgsqlDataReader reader = comm.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Book oneBook = new Book();
+                    oneBook.name = reader["bookname"].ToString();
+                    oneBook.author = reader["authorname"].ToString();
+                    oneBook.numOfPages = Convert.ToInt32(reader["numberofpages"]);
+                    oneBook.genre = Convert.ToInt32(reader["bookgenre"]);
+                    oneBook.status = -1;
+                    library.Add(oneBook);
+                }
+            }
+            comm.Dispose();
+            conn.Close();
+
+            //conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = uliya1992");
+            conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
+            conn.Open();
+            comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Add(new NpgsqlParameter("@userNickName", userNickName));
+            comm.CommandText = "select * from statustable where userlogin = @userNickName";
+            reader = comm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string bookName = reader["booknames"].ToString();
+
+                for (int i = 0; i < library.Count; i++)
+                {
+                    if (library[i].name == bookName)
+                    {
+                        Book currentBook = library[i];
+                        currentBook.status = ((reader.GetInt32(2)) - 1);
+                        library[i] = currentBook;
+                    }
+                }
+
+            }
+            comm.Dispose();
+            conn.Close();
+
+            foreach (Book j in library)
+            {
+                singleBookPanelControl sbpc = new singleBookPanelControl(userNickName);
+                if (System.IO.File.Exists(@"CoversOfBooks\" + j.name + ".png"))
+                {
+                    sbpc.pictureBox1.Image = new Bitmap(@"CoversOfBooks\" + j.name + ".png");
+                }
+                sbpc.Margin = new Padding(15, 15, 15, 15);
+                myOwnPanel.Controls.Add(sbpc);
+                sbpc.bookNameLabel.Text = j.name;
+                sbpc.statusComboBox.SelectedIndex = j.status;
+                if (j.status == -1)
+                {
+                    sbpc.statusComboBox.SelectedIndex = 5;
+                }
+
+            }
+
+            myOwnPanel.PaintForm();
+        }
+
         //private string GetBookStatus(Statuses statusCode)
         //{
         //    switch (statusCode)

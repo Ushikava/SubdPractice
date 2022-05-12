@@ -33,18 +33,18 @@
             this.loginParolTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.loginMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.passwordMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.loginPictureBox = new System.Windows.Forms.PictureBox();
+            this.passwordPictureBox = new System.Windows.Forms.PictureBox();
             this.logoLabel = new System.Windows.Forms.Label();
             this.lowerLoginTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.signUpLinkLabel = new System.Windows.Forms.LinkLabel();
             this.signInButton = new System.Windows.Forms.Button();
-            this.loginPictureBox = new System.Windows.Forms.PictureBox();
-            this.passwordPictureBox = new System.Windows.Forms.PictureBox();
             this.mainTableLayoutPanel.SuspendLayout();
             this.upperLoginTableLayoutPanel.SuspendLayout();
             this.loginParolTableLayoutPanel.SuspendLayout();
-            this.lowerLoginTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordPictureBox)).BeginInit();
+            this.lowerLoginTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTableLayoutPanel
@@ -126,6 +126,28 @@
             this.passwordMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordMaskedTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordMaskedTextBox_KeyDown);
             // 
+            // loginPictureBox
+            // 
+            this.loginPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginPictureBox.BackgroundImage = global::SubdSecond.Properties.Resources.Login;
+            this.loginPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loginPictureBox.Location = new System.Drawing.Point(14, 15);
+            this.loginPictureBox.Name = "loginPictureBox";
+            this.loginPictureBox.Size = new System.Drawing.Size(50, 50);
+            this.loginPictureBox.TabIndex = 2;
+            this.loginPictureBox.TabStop = false;
+            // 
+            // passwordPictureBox
+            // 
+            this.passwordPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.passwordPictureBox.BackgroundImage = global::SubdSecond.Properties.Resources.Password;
+            this.passwordPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.passwordPictureBox.Location = new System.Drawing.Point(11, 77);
+            this.passwordPictureBox.Name = "passwordPictureBox";
+            this.passwordPictureBox.Size = new System.Drawing.Size(53, 50);
+            this.passwordPictureBox.TabIndex = 3;
+            this.passwordPictureBox.TabStop = false;
+            // 
             // logoLabel
             // 
             this.logoLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -137,6 +159,7 @@
             this.logoLabel.Size = new System.Drawing.Size(408, 71);
             this.logoLabel.TabIndex = 1;
             this.logoLabel.Text = "Моя библиотека";
+            this.logoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lowerLoginTableLayoutPanel
             // 
@@ -184,28 +207,6 @@
             this.signInButton.UseVisualStyleBackColor = false;
             this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
-            // loginPictureBox
-            // 
-            this.loginPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginPictureBox.BackgroundImage = global::SubdSecond.Properties.Resources.Login;
-            this.loginPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.loginPictureBox.Location = new System.Drawing.Point(14, 15);
-            this.loginPictureBox.Name = "loginPictureBox";
-            this.loginPictureBox.Size = new System.Drawing.Size(50, 50);
-            this.loginPictureBox.TabIndex = 2;
-            this.loginPictureBox.TabStop = false;
-            // 
-            // passwordPictureBox
-            // 
-            this.passwordPictureBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.passwordPictureBox.BackgroundImage = global::SubdSecond.Properties.Resources.Password;
-            this.passwordPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.passwordPictureBox.Location = new System.Drawing.Point(11, 77);
-            this.passwordPictureBox.Name = "passwordPictureBox";
-            this.passwordPictureBox.Size = new System.Drawing.Size(53, 50);
-            this.passwordPictureBox.TabIndex = 3;
-            this.passwordPictureBox.TabStop = false;
-            // 
             // UserLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -223,10 +224,10 @@
             this.upperLoginTableLayoutPanel.PerformLayout();
             this.loginParolTableLayoutPanel.ResumeLayout(false);
             this.loginParolTableLayoutPanel.PerformLayout();
-            this.lowerLoginTableLayoutPanel.ResumeLayout(false);
-            this.lowerLoginTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordPictureBox)).EndInit();
+            this.lowerLoginTableLayoutPanel.ResumeLayout(false);
+            this.lowerLoginTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
