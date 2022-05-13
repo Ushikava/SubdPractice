@@ -33,6 +33,7 @@
             this.библиотекаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавтьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.найтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.профильToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПриложенииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +41,8 @@
             this.sortTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.sortByLabel = new System.Windows.Forms.Label();
             this.sortByComboBox = new System.Windows.Forms.ComboBox();
-            this.найтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchResultsLabel = new System.Windows.Forms.Label();
+            this.seacrhFallButton = new System.Windows.Forms.Button();
             this.myOwnPanel = new SubdSecond.MyOwnControls.MyOwnPanelcs();
             this.parrotFlatMenuStrip.SuspendLayout();
             this.sortTableLayoutPanel.SuspendLayout();
@@ -50,7 +52,7 @@
             // 
             this.sayHiLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sayHiLabel.AutoSize = true;
-            this.sayHiLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.sayHiLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.sayHiLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.875F);
             this.sayHiLabel.ForeColor = System.Drawing.Color.Black;
             this.sayHiLabel.Location = new System.Drawing.Point(1326, 16);
@@ -63,7 +65,6 @@
             // 
             this.parrotFlatMenuStrip.BackColor = System.Drawing.Color.RoyalBlue;
             this.parrotFlatMenuStrip.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.parrotFlatMenuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.parrotFlatMenuStrip.HoverBackColor = System.Drawing.Color.CornflowerBlue;
             this.parrotFlatMenuStrip.HoverTextColor = System.Drawing.Color.White;
             this.parrotFlatMenuStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
@@ -109,6 +110,14 @@
             this.удалитьToolStripMenuItem.Text = "Удалить...";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // найтиToolStripMenuItem
+            // 
+            this.найтиToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
+            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(263, 44);
+            this.найтиToolStripMenuItem.Text = "Найти...";
+            this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
+            // 
             // профильToolStripMenuItem
             // 
             this.профильToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -145,14 +154,19 @@
             // 
             // sortTableLayoutPanel
             // 
-            this.sortTableLayoutPanel.ColumnCount = 3;
+            this.sortTableLayoutPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.sortTableLayoutPanel.ColumnCount = 6;
+            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
+            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.sortTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.sortTableLayoutPanel.Controls.Add(this.sortByLabel, 0, 0);
-            this.sortTableLayoutPanel.Controls.Add(this.sayHiLabel, 2, 0);
             this.sortTableLayoutPanel.Controls.Add(this.sortByComboBox, 1, 0);
+            this.sortTableLayoutPanel.Controls.Add(this.sayHiLabel, 5, 0);
+            this.sortTableLayoutPanel.Controls.Add(this.searchResultsLabel, 3, 0);
+            this.sortTableLayoutPanel.Controls.Add(this.seacrhFallButton, 4, 0);
             this.sortTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.sortTableLayoutPanel.Location = new System.Drawing.Point(0, 1061);
             this.sortTableLayoutPanel.Name = "sortTableLayoutPanel";
@@ -166,7 +180,7 @@
             this.sortByLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.sortByLabel.AutoSize = true;
             this.sortByLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sortByLabel.Location = new System.Drawing.Point(57, 16);
+            this.sortByLabel.Location = new System.Drawing.Point(26, 16);
             this.sortByLabel.Name = "sortByLabel";
             this.sortByLabel.Size = new System.Drawing.Size(199, 35);
             this.sortByLabel.TabIndex = 0;
@@ -175,6 +189,7 @@
             // sortByComboBox
             // 
             this.sortByComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.sortByComboBox.BackColor = System.Drawing.Color.Gainsboro;
             this.sortByComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sortByComboBox.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sortByComboBox.FormattingEnabled = true;
@@ -183,19 +198,36 @@
             "кол-ву страниц",
             "автору",
             "жанру"});
-            this.sortByComboBox.Location = new System.Drawing.Point(356, 12);
+            this.sortByComboBox.Location = new System.Drawing.Point(261, 12);
             this.sortByComboBox.Name = "sortByComboBox";
             this.sortByComboBox.Size = new System.Drawing.Size(230, 43);
             this.sortByComboBox.TabIndex = 1;
             this.sortByComboBox.SelectedIndexChanged += new System.EventHandler(this.sortByComboBox_SelectedIndexChanged);
             // 
-            // найтиToolStripMenuItem
+            // searchResultsLabel
             // 
-            this.найтиToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.найтиToolStripMenuItem.Name = "найтиToolStripMenuItem";
-            this.найтиToolStripMenuItem.Size = new System.Drawing.Size(263, 44);
-            this.найтиToolStripMenuItem.Text = "Найти...";
-            this.найтиToolStripMenuItem.Click += new System.EventHandler(this.найтиToolStripMenuItem_Click);
+            this.searchResultsLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.searchResultsLabel.AutoSize = true;
+            this.searchResultsLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchResultsLabel.Location = new System.Drawing.Point(673, 16);
+            this.searchResultsLabel.Name = "searchResultsLabel";
+            this.searchResultsLabel.Size = new System.Drawing.Size(234, 35);
+            this.searchResultsLabel.TabIndex = 4;
+            this.searchResultsLabel.Text = "Результаты поиска";
+            this.searchResultsLabel.Visible = false;
+            // 
+            // seacrhFallButton
+            // 
+            this.seacrhFallButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.seacrhFallButton.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.seacrhFallButton.Location = new System.Drawing.Point(913, 7);
+            this.seacrhFallButton.Name = "seacrhFallButton";
+            this.seacrhFallButton.Size = new System.Drawing.Size(182, 53);
+            this.seacrhFallButton.TabIndex = 5;
+            this.seacrhFallButton.Text = "Отменить";
+            this.seacrhFallButton.UseVisualStyleBackColor = true;
+            this.seacrhFallButton.Visible = false;
+            this.seacrhFallButton.Click += new System.EventHandler(this.seacrhFallButton_Click);
             // 
             // myOwnPanel
             // 
@@ -204,7 +236,7 @@
             this.myOwnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myOwnPanel.Location = new System.Drawing.Point(0, 48);
             this.myOwnPanel.Name = "myOwnPanel";
-            this.myOwnPanel.Size = new System.Drawing.Size(1574, 1081);
+            this.myOwnPanel.Size = new System.Drawing.Size(1574, 1013);
             this.myOwnPanel.TabIndex = 8;
             // 
             // LibraryForm
@@ -212,8 +244,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1574, 1129);
-            this.Controls.Add(this.sortTableLayoutPanel);
             this.Controls.Add(this.myOwnPanel);
+            this.Controls.Add(this.sortTableLayoutPanel);
             this.Controls.Add(this.parrotFlatMenuStrip);
             this.Name = "LibraryForm";
             this.Text = "Моя библиотека";
@@ -244,6 +276,8 @@
         private System.Windows.Forms.Label sortByLabel;
         private System.Windows.Forms.ComboBox sortByComboBox;
         private System.Windows.Forms.ToolStripMenuItem найтиToolStripMenuItem;
+        private System.Windows.Forms.Label searchResultsLabel;
+        private System.Windows.Forms.Button seacrhFallButton;
     }
 }
 

@@ -291,6 +291,9 @@ namespace SubdSecond
             FindBookForm fbf = new FindBookForm(this);
             fbf.ShowDialog(this);
 
+            if (findRowBy == "")
+                return;
+
             myOwnPanel.Controls.Clear();
             List<Book> findResult = new List<Book>();
 
@@ -367,8 +370,19 @@ namespace SubdSecond
 
             }
 
-            myOwnPanel.PaintForm();
+            findRowBy = "";
+            keyWord = "";
 
+            myOwnPanel.PaintForm();
+            searchResultsLabel.Visible = true;
+            seacrhFallButton.Visible = true;
+        }
+
+        private void seacrhFallButton_Click(object sender, EventArgs e)
+        {
+            searchResultsLabel.Visible = false;
+            seacrhFallButton.Visible = false;
+            refresh();
         }
 
         //private string GetBookStatus(Statuses statusCode)
