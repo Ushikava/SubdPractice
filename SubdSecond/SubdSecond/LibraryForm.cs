@@ -15,6 +15,8 @@ namespace SubdSecond
     public partial class LibraryForm : Form
     {
         string userNickName = "";
+        string findRowBy = "";
+        string keyWord = "";
 
         enum Statuses
         {
@@ -276,6 +278,97 @@ namespace SubdSecond
             }
 
             myOwnPanel.PaintForm();
+        }
+
+        public void changevaluefunc(string param, string key)
+        {
+            findRowBy = param;
+            keyWord = key;
+        }
+
+        private void найтиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindBookForm fbf = new FindBookForm(this);
+            fbf.ShowDialog(this);
+
+            myOwnPanel.Controls.Clear();
+            List<Book> findResult = new List<Book>();
+
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Add(new NpgsqlParameter("@keyWord", keyWord));
+            if (findRowBy == "name")
+                comm.CommandText = "select * from librarytable where bookname = @keyWord";
+            else
+                comm.CommandText = "select * from librarytable where authorname = @keyWord";
+            
+            NpgsqlDataReader reader = comm.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Book oneBook = new Book();
+                    oneBook.name = reader["bookname"].ToString();
+                    oneBook.author = reader["authorname"].ToString();
+                    oneBook.numOfPages = Convert.ToInt32(reader["numberofpages"]);
+                    oneBook.genre = Convert.ToInt32(reader["bookgenre"]);
+                    oneBook.status = -1;
+                    findResult.Add(oneBook);
+                }
+            }
+            comm.Dispose();
+            conn.Close();
+
+            conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
+            conn.Open();
+            comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Add(new NpgsqlParameter("@userNickName", userNickName));
+            comm.CommandText = "select * from statustable where userlogin = @userNickName";
+            reader = comm.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string bookName = reader["booknames"].ToString();
+
+                for (int i = 0; i < findResult.Count; i++)
+                {
+                    if (findResult[i].name == bookName)
+                    {
+                        Book currentBook = findResult[i];
+                        currentBook.status = ((reader.GetInt32(2)) - 1);
+                        findResult[i] = currentBook;
+                    }
+                }
+
+            }
+            comm.Dispose();
+            conn.Close();
+
+            foreach (Book j in findResult)
+            {
+                singleBookPanelControl sbpc = new singleBookPanelControl(userNickName);
+                if (System.IO.File.Exists(@"CoversOfBooks\" + j.name + ".png"))
+                {
+                    sbpc.pictureBox1.Image = new Bitmap(@"CoversOfBooks\" + j.name + ".png");
+                }
+                sbpc.Margin = new Padding(15, 15, 15, 15);
+                myOwnPanel.Controls.Add(sbpc);
+                sbpc.bookNameLabel.Text = j.name;
+                sbpc.statusComboBox.SelectedIndex = j.status;
+                if (j.status == -1)
+                {
+                    sbpc.statusComboBox.SelectedIndex = 5;
+                }
+
+            }
+
+            myOwnPanel.PaintForm();
+
         }
 
         //private string GetBookStatus(Statuses statusCode)

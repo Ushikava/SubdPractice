@@ -45,6 +45,8 @@
             this.bookNameLabel.Text = "Название книги";
             this.bookNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bookNameLabel.Click += new System.EventHandler(this.bookNameLabel_Click);
+            this.bookNameLabel.MouseEnter += new System.EventHandler(this.bookNameLabel_MouseEnter);
+            this.bookNameLabel.MouseLeave += new System.EventHandler(this.bookNameLabel_MouseLeave);
             // 
             // statusComboBox
             // 

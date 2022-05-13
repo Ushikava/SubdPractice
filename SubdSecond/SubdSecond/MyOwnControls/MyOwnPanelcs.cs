@@ -35,6 +35,7 @@ namespace SubdSecond.MyOwnControls
                     x = 0;
                     y = (y + i.Height + offset);
                     i.Location = new Point(x + offset, y + offset);
+                    x = (x + i.Width + offset);
                 }
                 else
                 {

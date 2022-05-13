@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.profileTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.genresLabel = new System.Windows.Forms.Label();
             this.yourProfileLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.genresLabel = new System.Windows.Forms.Label();
+            this.numOfLabel5 = new System.Windows.Forms.Label();
+            this.numOfLabel4 = new System.Windows.Forms.Label();
+            this.numOfLabel3 = new System.Windows.Forms.Label();
+            this.numOfLabel2 = new System.Windows.Forms.Label();
+            this.numOfLabel1 = new System.Windows.Forms.Label();
             this.inPlanesLabel = new System.Windows.Forms.Label();
             this.readingLabel = new System.Windows.Forms.Label();
             this.readedLabel = new System.Windows.Forms.Label();
             this.droppedLabel = new System.Windows.Forms.Label();
             this.putOutLabel = new System.Windows.Forms.Label();
-            this.numOfLabel1 = new System.Windows.Forms.Label();
-            this.numOfLabel2 = new System.Windows.Forms.Label();
-            this.numOfLabel3 = new System.Windows.Forms.Label();
-            this.numOfLabel4 = new System.Windows.Forms.Label();
-            this.numOfLabel5 = new System.Windows.Forms.Label();
             this.changePasswordLabel = new System.Windows.Forms.LinkLabel();
             this.profileDeleteLabel = new System.Windows.Forms.LinkLabel();
             this.userNickNameLabel = new System.Windows.Forms.Label();
@@ -74,6 +74,19 @@
             this.profileTableLayoutPanel.Size = new System.Drawing.Size(800, 450);
             this.profileTableLayoutPanel.TabIndex = 0;
             this.profileTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.profileTableLayoutPanel_Paint);
+            // 
+            // genresLabel
+            // 
+            this.genresLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.genresLabel.AutoSize = true;
+            this.genresLabel.BackColor = System.Drawing.Color.Transparent;
+            this.genresLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genresLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.genresLabel.Location = new System.Drawing.Point(517, 14);
+            this.genresLabel.Name = "genresLabel";
+            this.genresLabel.Size = new System.Drawing.Size(166, 39);
+            this.genresLabel.TabIndex = 2;
+            this.genresLabel.Text = "Ваш список";
             // 
             // yourProfileLabel
             // 
@@ -119,18 +132,65 @@
             this.tableLayoutPanel1.TabIndex = 1;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // genresLabel
+            // numOfLabel5
             // 
-            this.genresLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.genresLabel.AutoSize = true;
-            this.genresLabel.BackColor = System.Drawing.Color.Transparent;
-            this.genresLabel.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genresLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.genresLabel.Location = new System.Drawing.Point(517, 14);
-            this.genresLabel.Name = "genresLabel";
-            this.genresLabel.Size = new System.Drawing.Size(166, 39);
-            this.genresLabel.TabIndex = 2;
-            this.genresLabel.Text = "Ваш список";
+            this.numOfLabel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numOfLabel5.AutoSize = true;
+            this.numOfLabel5.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numOfLabel5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.numOfLabel5.Location = new System.Drawing.Point(288, 237);
+            this.numOfLabel5.Name = "numOfLabel5";
+            this.numOfLabel5.Size = new System.Drawing.Size(32, 39);
+            this.numOfLabel5.TabIndex = 4;
+            this.numOfLabel5.Text = "0";
+            // 
+            // numOfLabel4
+            // 
+            this.numOfLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numOfLabel4.AutoSize = true;
+            this.numOfLabel4.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numOfLabel4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.numOfLabel4.Location = new System.Drawing.Point(288, 180);
+            this.numOfLabel4.Name = "numOfLabel4";
+            this.numOfLabel4.Size = new System.Drawing.Size(32, 39);
+            this.numOfLabel4.TabIndex = 4;
+            this.numOfLabel4.Text = "0";
+            // 
+            // numOfLabel3
+            // 
+            this.numOfLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numOfLabel3.AutoSize = true;
+            this.numOfLabel3.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numOfLabel3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.numOfLabel3.Location = new System.Drawing.Point(288, 123);
+            this.numOfLabel3.Name = "numOfLabel3";
+            this.numOfLabel3.Size = new System.Drawing.Size(32, 39);
+            this.numOfLabel3.TabIndex = 4;
+            this.numOfLabel3.Text = "0";
+            // 
+            // numOfLabel2
+            // 
+            this.numOfLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numOfLabel2.AutoSize = true;
+            this.numOfLabel2.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numOfLabel2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.numOfLabel2.Location = new System.Drawing.Point(288, 66);
+            this.numOfLabel2.Name = "numOfLabel2";
+            this.numOfLabel2.Size = new System.Drawing.Size(32, 39);
+            this.numOfLabel2.TabIndex = 4;
+            this.numOfLabel2.Text = "0";
+            // 
+            // numOfLabel1
+            // 
+            this.numOfLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.numOfLabel1.AutoSize = true;
+            this.numOfLabel1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numOfLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.numOfLabel1.Location = new System.Drawing.Point(288, 9);
+            this.numOfLabel1.Name = "numOfLabel1";
+            this.numOfLabel1.Size = new System.Drawing.Size(32, 39);
+            this.numOfLabel1.TabIndex = 3;
+            this.numOfLabel1.Text = "0";
             // 
             // inPlanesLabel
             // 
@@ -191,66 +251,6 @@
             this.putOutLabel.Size = new System.Drawing.Size(129, 39);
             this.putOutLabel.TabIndex = 5;
             this.putOutLabel.Text = "Отложил";
-            // 
-            // numOfLabel1
-            // 
-            this.numOfLabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numOfLabel1.AutoSize = true;
-            this.numOfLabel1.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numOfLabel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.numOfLabel1.Location = new System.Drawing.Point(288, 9);
-            this.numOfLabel1.Name = "numOfLabel1";
-            this.numOfLabel1.Size = new System.Drawing.Size(32, 39);
-            this.numOfLabel1.TabIndex = 3;
-            this.numOfLabel1.Text = "0";
-            // 
-            // numOfLabel2
-            // 
-            this.numOfLabel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numOfLabel2.AutoSize = true;
-            this.numOfLabel2.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numOfLabel2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.numOfLabel2.Location = new System.Drawing.Point(288, 66);
-            this.numOfLabel2.Name = "numOfLabel2";
-            this.numOfLabel2.Size = new System.Drawing.Size(32, 39);
-            this.numOfLabel2.TabIndex = 4;
-            this.numOfLabel2.Text = "0";
-            // 
-            // numOfLabel3
-            // 
-            this.numOfLabel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numOfLabel3.AutoSize = true;
-            this.numOfLabel3.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numOfLabel3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.numOfLabel3.Location = new System.Drawing.Point(288, 123);
-            this.numOfLabel3.Name = "numOfLabel3";
-            this.numOfLabel3.Size = new System.Drawing.Size(32, 39);
-            this.numOfLabel3.TabIndex = 4;
-            this.numOfLabel3.Text = "0";
-            // 
-            // numOfLabel4
-            // 
-            this.numOfLabel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numOfLabel4.AutoSize = true;
-            this.numOfLabel4.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numOfLabel4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.numOfLabel4.Location = new System.Drawing.Point(288, 180);
-            this.numOfLabel4.Name = "numOfLabel4";
-            this.numOfLabel4.Size = new System.Drawing.Size(32, 39);
-            this.numOfLabel4.TabIndex = 4;
-            this.numOfLabel4.Text = "0";
-            // 
-            // numOfLabel5
-            // 
-            this.numOfLabel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numOfLabel5.AutoSize = true;
-            this.numOfLabel5.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numOfLabel5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.numOfLabel5.Location = new System.Drawing.Point(288, 237);
-            this.numOfLabel5.Name = "numOfLabel5";
-            this.numOfLabel5.Size = new System.Drawing.Size(32, 39);
-            this.numOfLabel5.TabIndex = 4;
-            this.numOfLabel5.Text = "0";
             // 
             // changePasswordLabel
             // 

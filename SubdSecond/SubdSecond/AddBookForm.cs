@@ -17,7 +17,8 @@ namespace SubdSecond
         string bookName = "";
         int numOfPages = -1;
         string bookAuthor = "";
-        string choosenFile = "";
+        string choosenPictureFile = "";
+        string choosenBookFile = "";
 
         public AddBookForm()
         {
@@ -47,11 +48,18 @@ namespace SubdSecond
 
         private void acceptButton_Click(object sender, EventArgs e)
         {
-            if (bookName != "" || bookAuthor != "" || choosenFile != "")
+            if (bookName == "" || bookAuthor == "")
             {
                 MessageBox.Show("Не все параметры указаны!","Ошибка");
                 return;
             }
+
+            if (findBookInList(bookName) == true)
+            {
+                MessageBox.Show("Такая книга уже существует!", "Ошибка");
+                return;
+            }
+
             //NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = uliya1992");
             NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
             conn.Open();
@@ -64,14 +72,29 @@ namespace SubdSecond
             comm.Parameters.Add(new NpgsqlParameter("@newAuthorName", bookAuthor));
             comm.Parameters.Add(new NpgsqlParameter("@newGenreName", genreIndex));
             comm.CommandText = "insert into librarytable (bookname, numberofpages, authorname, bookgenre) values (@newBookName, @newNumberOfPages, @newAuthorName, @newGenreName);";
-
-            try
+            
+            if (choosenPictureFile != "")
             {
-                System.IO.File.Copy(choosenFile, @"CoversOfBooks\", true);
+                try
+                {
+                    System.IO.File.Copy(choosenPictureFile, @"CoversOfBooks\" + bookName + ".png", true);
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Не удалось взять картинку. Ошибка: " + exp.Message, "Ошибка");
+                }
             }
-            catch(Exception exp)
-            { 
-                MessageBox.Show("Не удалось взять картинку. Ошибка: " + exp.Message, "Ошибка");
+            
+            if (choosenBookFile != "")
+            {
+                try
+                {
+                    System.IO.File.Copy(choosenBookFile, @"Books\" + bookName + ".pdf", true);
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Не удалось взять выбранный источник. Ошибка: " + exp.Message, "Ошибка");
+                }
             }
 
             comm.ExecuteNonQuery();
@@ -86,6 +109,22 @@ namespace SubdSecond
 
             this.Close();
             
+        }
+
+        private bool findBookInList(string bookname)
+        {
+            bool searchcheck = false;
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database = kursachdb;User Id=postgres;Password = alex83953458130");
+            conn.Open();
+            NpgsqlCommand comm = new NpgsqlCommand();
+            comm.Connection = conn;
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Add(new NpgsqlParameter("@newBookName", bookName));
+            comm.CommandText = "select * from librarytable where bookname = @newBookName";
+            NpgsqlDataReader reader = comm.ExecuteReader();
+            if (reader.HasRows)
+                searchcheck = true;
+            return searchcheck;
         }
 
         private void bookGenreComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,7 +145,11 @@ namespace SubdSecond
 
         private void bookPagesTextBox_TextChanged(object sender, EventArgs e)
         {
-            numOfPages = Convert.ToInt32(bookPagesTextBox.Text);
+            bool check = int.TryParse(bookPagesTextBox.Text, out numOfPages);
+            if (check == false)
+            {
+                numOfPages = -1;
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -126,8 +169,18 @@ namespace SubdSecond
             ofdlg.Multiselect = false;
             ofdlg.RestoreDirectory = true;
             ofdlg.ShowDialog();
-            choosenFile = ofdlg.FileName;
+            choosenPictureFile = ofdlg.FileName;
             
+        }
+
+        private void chooseSourceButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofdlg = new OpenFileDialog();
+            ofdlg.Filter = "pdf files (*.pdf)|*.pdf";
+            ofdlg.Multiselect = false;
+            ofdlg.RestoreDirectory = true;
+            ofdlg.ShowDialog();
+            choosenBookFile = ofdlg.FileName;
         }
     }
 }

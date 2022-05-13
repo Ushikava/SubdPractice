@@ -91,3 +91,5 @@ C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecon
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\CoversOfBooks\Новая.png
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\CoversOfBooks\NewBook1.png
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.ProfileForm.resources
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Debug\Books\S_dlya_programmistov_s_vvedeniem_v_S11_-_2014.pdf
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Debug\SubdSecond.FindBookForm.resources

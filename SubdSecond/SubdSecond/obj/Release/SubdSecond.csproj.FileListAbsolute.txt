@@ -48,3 +48,4 @@ C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSec
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSecond.exe
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSecond.pdb
 C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\obj\Release\SubdSecond.ProfileForm.resources
+C:\My programs\Repository\SubdPractice\SubdSecond\SubdSecond\bin\Release\Books\S_dlya_programmistov_s_vvedeniem_v_S11_-_2014.pdf

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using System.Diagnostics;
 
 namespace SubdSecond.MyOwnControls
 {
@@ -95,7 +96,21 @@ namespace SubdSecond.MyOwnControls
 
         private void bookNameLabel_Click(object sender, EventArgs e)
         {
-            statusComboBox.Visible = !(statusComboBox.Visible);
+            bookNameLabel.ForeColor = Color.Black;
+            Process.Start(@"Books\");
+            //statusComboBox.Visible = !(statusComboBox.Visible);
+        }
+
+        private void bookNameLabel_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Hand;
+            bookNameLabel.ForeColor = Color.DimGray;
+        }
+
+        private void bookNameLabel_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Arrow;
+            bookNameLabel.ForeColor = Color.Black;
         }
     }
 }
